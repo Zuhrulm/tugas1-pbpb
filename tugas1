@@ -1,0 +1,45 @@
+const nim: string = "053535541";
+
+// soal 1
+console.log("SOAL 1");
+const tinggi: number = parseInt(nim.slice(-1));
+
+for (let i = 1; i <= tinggi; i++) {
+  let row = "";
+  for (let j = 1; j <= i; j++) {
+    row += j + " ";
+  }
+  console.log(row.trimEnd());
+}
+
+// soal 2
+console.log("SOAL 2");
+const awal: number = parseInt(nim.slice(-2));
+const digitKe3Belakang: number = parseInt(nim.charAt(nim.length - 3));
+const beda: number = digitKe3Belakang + 1;
+
+const deret: number[] = [];
+for (let i = 0; i < 10; i++) {
+  deret.push(awal + i * beda);
+}
+console.log("Output:", deret.join(", "));
+
+// soal 3
+console.log("SOAL 3");
+const batasAkhir: number = parseInt(nim.slice(-2)) + 10;
+
+function isPrime(num: number): boolean {
+  if (num < 2) return false;
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
+}
+
+const prima: number[] = [];
+for (let i = 1; i <= batasAkhir; i++) {
+  if (isPrime(i)) {
+    prima.push(i);
+  }
+}
+console.log("Output:", prima.join(", "));
